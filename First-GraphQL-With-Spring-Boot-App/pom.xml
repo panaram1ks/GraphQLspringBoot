@@ -34,7 +34,8 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		
+
+<!--		these 3 dependency nead to work with GraphQL-->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
 			<artifactId>graphql-spring-boot-starter</artifactId>
@@ -45,11 +46,14 @@
 			<artifactId>graphql-java-tools</artifactId>
 			<version>5.2.4</version>
 		</dependency>
+
+<!--		Optional dependency if you necessary work with UI-->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
 			<artifactId>graphiql-spring-boot-starter</artifactId>
 			<version>5.0.2</version>
 		</dependency>
+<!--		^          -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
