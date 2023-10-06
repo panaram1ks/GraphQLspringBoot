@@ -10,6 +10,8 @@ import lombok.*;
 //@ToString
 //@EqualsAndHashCode
 //@Data // is equal  @Getter @Setter @ToString @EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentResponse {
 
 	@JsonIgnore
@@ -20,10 +22,12 @@ public class StudentResponse {
 
 	private String lastName;
 
-	public StudentResponse(long id, String firstName, String lastName) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+//	public StudentResponse(long id, String firstName, String lastName) {
+//		this.id = id;
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//	}
 
+//	public StudentResponse() {
+//	}
 }
