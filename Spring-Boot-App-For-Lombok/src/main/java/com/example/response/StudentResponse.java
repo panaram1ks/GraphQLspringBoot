@@ -1,20 +1,19 @@
 package com.example.response;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.entity.Student;
+import com.example.entity.Subject;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
 
+import lombok.Getter;
+import lombok.Setter;
 
-@Getter
 @Setter
-//@ToString
-//@EqualsAndHashCode
-//@Data // is equal  @Getter @Setter @ToString @EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter
 public class StudentResponse {
 
-	@JsonIgnore
 	private long id;
 
 	@JsonProperty("first_name")
@@ -22,12 +21,29 @@ public class StudentResponse {
 
 	private String lastName;
 
-//	public StudentResponse(long id, String firstName, String lastName) {
-//		this.id = id;
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//	}
+	private String email;
+	
+	private String street;
 
-//	public StudentResponse() {
-//	}
+	private String city;
+	
+	private List<SubjectResponse> learningSubjects;
+	
+	public StudentResponse (Student student) {
+		this.id = student.getId();
+		this.firstName = student.getFirstName();
+		this.lastName = student.getLastName();
+		this.email = student.getEmail();
+		
+		this.street = student.getAddress().getStreet();
+		this.city = student.getAddress().getCity();
+		
+		if (student.getLearningSubjects() != null) {
+			learningSubjects = new ArrayList<SubjectResponse>();
+			for (Subject subject: student.getLearningSubjects()) {
+				learningSubjects.add(new SubjectResponse(subject));
+			}
+		}
+	}
+
 }
