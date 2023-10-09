@@ -13,4 +13,8 @@ public class Query implements GraphQLQueryResolver {
     public String secondQuery(){
         return "Second Query";
     }
+
+    public String fullName(String firstName, String lastName){
+        return firstName + " " + lastName;
+    }
 }
