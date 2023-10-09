@@ -11,3 +11,9 @@ query {
     lastName : "123"
   })
 }
+
+http://localhost:8082/graphiql
+
+http://localhost:8082/app-ui
+
+http://localhost:8082/student-service
