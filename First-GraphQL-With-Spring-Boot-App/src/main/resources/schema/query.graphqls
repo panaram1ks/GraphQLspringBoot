@@ -6,7 +6,7 @@ type Query {
 }
 
 input SampleRequest {
-    firstName : String
+    firstName : String!               # ! exclamation mark, not allow as NULL
     lastName : String
 #    temp : Temp
 }

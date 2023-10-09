@@ -6,7 +6,6 @@ query {
 }
 
 query {
-  # fullName(firstName: "John", lastName: "Smith")
   fullName(sampleRequest : {
     firstName : "Pupa"
     lastName : "123"
