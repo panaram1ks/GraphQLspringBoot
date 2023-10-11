@@ -17,3 +17,11 @@ http://localhost:8082/graphiql
 http://localhost:8082/app-ui
 
 http://localhost:8082/student-service
+
+query {
+  student(id : 1){
+    id
+    firstName
+    lastName
+  }
+}
