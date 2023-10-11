@@ -15,14 +15,36 @@ type StudentResponce {
     email : String
     street : String
     city : String
+    #    [ ] - user for List and Array
+    learningSubjects : [SubjectResponse]
+}
+
+type SubjectResponse {
+    id : Long
+    subjectName : String
+    marksObtained : Float # Double -> we should use Float instead of Double
 }
 
 input SampleRequest {
     firstName : String!               # ! exclamation mark, not allow as NULL
     lastName : String
-#    temp : Temp
+    #    temp : Temp
 }
 
 #input Temp {
 #
 #}
+
+# get list objects  -> learningSubjects
+query {
+    student(id : 1){
+        id
+        firstName
+        lastName
+        learningSubjects{
+            id
+            subjectName
+            marksObtained
+        }
+    }
+}
