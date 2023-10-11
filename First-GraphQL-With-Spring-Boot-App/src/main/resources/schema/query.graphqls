@@ -17,6 +17,7 @@ type StudentResponce {
     city : String
     #    [ ] - user for List and Array
     learningSubjects : [SubjectResponse]
+    fullName : String
 }
 
 type SubjectResponse {
