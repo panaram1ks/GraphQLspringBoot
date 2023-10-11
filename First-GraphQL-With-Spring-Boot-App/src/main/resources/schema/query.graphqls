@@ -3,6 +3,18 @@ type Query {
     secondQuery: String
     #    fullName(firstName : String, lastName : String) : String
     fullName(sampleRequest : SampleRequest) : String
+    student(id : Long) : StudentResponce
+}
+
+# use input when it's argument type
+# use type when it's returning type
+type StudentResponce {
+    id : Long
+    firstName : String
+    lastName : String
+    email : String
+    street : String
+    city : String
 }
 
 input SampleRequest {
