@@ -1,5 +1,5 @@
 type Mutation {
-    createStudent(createStudentRequest : CreateStudentRequest) : StudentResponse   # we already have StudentResponse maping in query.graphqls file
+    createStudent(createStudentRequest : CreateStudentRequest) : StudentResponce   # we already have StudentResponse maping in query.graphqls file
 }
 
 input CreateStudentRequest {
