@@ -25,3 +25,16 @@ query {
         }
     }
 }
+
+query {
+    student(id : 2){
+        id
+        firstName
+        lastName
+        learningSubjects(subjectNameFilter: ALL) {
+            id
+            subjectName
+            marksObtained
+        }
+    }
+}

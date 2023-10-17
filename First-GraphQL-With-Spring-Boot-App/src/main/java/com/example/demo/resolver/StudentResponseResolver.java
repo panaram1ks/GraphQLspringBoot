@@ -21,16 +21,18 @@ public class StudentResponseResolver implements GraphQLResolver<StudentResponse>
         Student student = studentResponse.getStudent();
         if (student.getLearningSubjects() != null) {
             for (Subject subject : student.getLearningSubjects()) {
-               if(subjectNameFilter.name().equalsIgnoreCase(subject.getSubjectName())){
-                   learningSubjects.add(new SubjectResponse(subject));
-               }
+                if (subjectNameFilter.name().equalsIgnoreCase(SubjectNameFilter.ALL.name())) {
+                    learningSubjects.add(new SubjectResponse(subject));
+                } else if (subjectNameFilter.name().equalsIgnoreCase(subject.getSubjectName())) {
+                    learningSubjects.add(new SubjectResponse(subject));
+                }
             }
         }
         return learningSubjects;
     }
 
-    public String getFullName(StudentResponse studentResponse){
-        return  studentResponse.getFullName() + " " + studentResponse.getLastName();
+    public String getFullName(StudentResponse studentResponse) {
+        return studentResponse.getFullName() + " " + studentResponse.getLastName();
     }
 
 }
