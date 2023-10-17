@@ -1,0 +1,27 @@
+# get list objects  -> learningSubjects
+query {
+    student(id : 1){
+        id
+        firstName
+        lastName
+        learningSubjects {
+            id
+            subjectName
+            marksObtained
+        }
+    }
+}
+
+
+query {
+    student(id : 2){
+        id
+        firstName
+        lastName
+        learningSubjects(subjectNameFilter: Java) {
+            id
+            subjectName
+            marksObtained
+        }
+    }
+}

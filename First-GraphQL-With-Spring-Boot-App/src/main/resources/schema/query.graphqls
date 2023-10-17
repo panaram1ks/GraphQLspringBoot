@@ -16,8 +16,14 @@ type StudentResponce {
     street : String
     city : String
     #    [ ] - user for List and Array
-    learningSubjects : [SubjectResponse]
+    learningSubjects(subjectNameFilter : SubjectNameFilter ) : [SubjectResponse]
     fullName : String
+}
+
+enum SubjectNameFilter {
+    Java,
+    MySQL,
+    MongoDB
 }
 
 type SubjectResponse {
@@ -36,16 +42,4 @@ input SampleRequest {
 #
 #}
 
-# get list objects  -> learningSubjects
-query {
-    student(id : 1){
-        id
-        firstName
-        lastName
-        learningSubjects{
-            id
-            subjectName
-            marksObtained
-        }
-    }
-}
+
