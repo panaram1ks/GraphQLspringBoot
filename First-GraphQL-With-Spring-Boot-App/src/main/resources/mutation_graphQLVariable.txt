@@ -1,0 +1,39 @@
+mutation createStudent($createStudentRequest : CreateStudentRequest){
+  createStudent(createStudentRequest : $createStudentRequest)
+  {
+    id
+    firstName
+    lastName
+    email
+    street
+    city
+    learningSubjects(subjectNameFilter: ALL) {
+      id
+      subjectName
+      marksObtained
+    }
+    fullName
+  }
+}
+
+
+# Variable
+{
+  "createStudentRequest": {
+    "firstName" : "Sachin2",
+    "lastName" : "Kumar2",
+    "email" : "kumar2@gmail.com",
+    "street" : "any street",
+    "city" : "Mymbai",
+    "subjectsLearning" : [
+      {
+        "subjectName" : "Java",
+        "marksObtained" : 65.50
+      },
+      {
+        "subjectName" : "MongoDB",
+        "marksObtained" : 67.70
+      }
+    ]
+  }
+}
