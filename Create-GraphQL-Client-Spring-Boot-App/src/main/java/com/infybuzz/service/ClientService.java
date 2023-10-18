@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.infybuzz.response.StudentResponse;
 import reactor.core.publisher.Mono;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class ClientService {
 
@@ -16,8 +19,11 @@ public class ClientService {
 	GraphQLWebClient graphQLWebClient;
 
 	public StudentResponse getStudent (Integer id) {
-		String queryStr = "query {\n" +
-				"    student(id : 1){\n" +
+		Map<String, Object> variables = new HashMap<>();
+		variables.put("id", id);
+
+		String queryStr = "query student($id : Int) {\n" +
+				"    student(id : $id){\n" +
 				"        id\n" +
 				"        firstName\n" +
 				"        lastName\n" +
@@ -32,6 +38,7 @@ public class ClientService {
 
 		GraphQLRequest request = GraphQLRequest.builder()
 				.query(queryStr)
+				.variables(variables)
 				.build();
 
 		GraphQLResponse response = graphQLWebClient.post(request).block();
