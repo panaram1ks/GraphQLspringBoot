@@ -1,13 +1,12 @@
 package com.infybuzz.service;
 
+import com.infybuzz.request.CreateStudentRequest;
+import com.infybuzz.response.StudentResponse;
 import graphql.kickstart.spring.webclient.boot.GraphQLRequest;
 import graphql.kickstart.spring.webclient.boot.GraphQLResponse;
 import graphql.kickstart.spring.webclient.boot.GraphQLWebClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.infybuzz.response.StudentResponse;
-import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +43,39 @@ public class ClientService {
 		GraphQLResponse response = graphQLWebClient.post(request).block();
 
 		StudentResponse student = response.get("student", StudentResponse.class);
+		return student;
+	}
+
+	public StudentResponse createStudent(CreateStudentRequest createStudentRequest) {
+		Map<String, Object> variables = new HashMap<>();
+		variables.put("createStudentRequest", createStudentRequest);
+
+		String mutationStr = "mutation createStudent($createStudentRequest : CreateStudentRequest){\n" +
+				"  createStudent(createStudentRequest : $createStudentRequest)   \n" +
+				"  {\n" +
+				"    id\n" +
+				"    firstName\n" +
+				"    lastName\n" +
+				"    email\n" +
+				"    street\n" +
+				"    city\n" +
+				"    learningSubjects(subjectNameFilter: ALL) {\n" +
+				"      id\n" +
+				"      subjectName\n" +
+				"      marksObtained\n" +
+				"    }\n" +
+				"    fullName\n" +
+				"  }  \n" +
+				"}";
+
+		GraphQLRequest request = GraphQLRequest.builder()
+				.query(mutationStr)
+				.variables(variables)
+				.build();
+
+		GraphQLResponse response = graphQLWebClient.post(request).block();
+
+		StudentResponse student = response.get("createStudent", StudentResponse.class);
 		return student;
 	}
 }
