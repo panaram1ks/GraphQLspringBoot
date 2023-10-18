@@ -1,0 +1,20 @@
+query student($id : Long, $subName : SubjectNameFilter) {
+    student(id : $id){
+        id
+        firstName
+        lastName
+        learningSubjects(subjectNameFilter: $subName) {
+          id
+          subjectName
+          marksObtained
+        }
+          fullName
+        }
+}
+
+
+# Variable
+{
+  "id" : 1,
+  "subName" : "Java"
+}
