@@ -1,10 +1,8 @@
 package com.example.demo.response;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.entity.Student;
-import com.example.demo.entity.Subject;
 
 import lombok.Getter;
 import lombok.Setter;

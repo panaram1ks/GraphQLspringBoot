@@ -3,13 +3,13 @@ type Query {
     secondQuery: String
     #    fullName(firstName : String, lastName : String) : String
     fullName(sampleRequest : SampleRequest) : String
-    student(id : Long) : StudentResponce
+    student(id : Int) : StudentResponce
 }
 
 # use input when it's argument type
 # use type when it's returning type
 type StudentResponce {
-    id : Long
+    id : Int
     firstName : String
     lastName : String
     email : String
@@ -28,7 +28,7 @@ enum SubjectNameFilter {
 }
 
 type SubjectResponse {
-    id : Long
+    id : Int
     subjectName : String
     marksObtained : Float # Double -> we should use Float instead of Double
 }

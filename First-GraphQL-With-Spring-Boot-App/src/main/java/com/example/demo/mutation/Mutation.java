@@ -1,9 +1,10 @@
 package com.example.demo.mutation;
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
+//import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.demo.request.CreateStudentRequest;
 import com.example.demo.response.StudentResponse;
 import com.example.demo.service.StudentService;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
